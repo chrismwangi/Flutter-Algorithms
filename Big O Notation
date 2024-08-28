@@ -1,0 +1,40 @@
+Big O Notation
+
+It Describes the upper bound of an algorithm(this is the worst case scenario) telling how runtime of the algorithm increases as size of input grows
+
+
+O(1) - Constant Time
+The runtime does not change with the size of the input.
+
+int getFirstElement(List<int> arr) {
+return arr[0];
+}
+
+No matter how large the list is, this function always takes the same amount of time to return the first element.
+
+O(n) - Linear Time
+The runtime increases linearly with the size of the input.
+
+bool findElement(List<int> arr, int target) {
+for (int element in arr) {
+if (element == target) {
+return true;
+}
+}
+return false;
+}
+
+The function checks each element in the list until it finds the target. If the list size doubles, the time taken doubles.
+
+O(n^2) - Quadratic Time
+The runtime increases quadratically with the size of the input.
+
+void printAllPairs(List<int> arr) {
+for (int i = 0; i < arr.length; i++) {
+for (int j = 0; j < arr.length; j++) {
+print('${arr[i]}, ${arr[j]}');
+}
+}
+}
+
+For each element in the list, the function iterates through the entire list again, resulting in a quadratic time complexity.

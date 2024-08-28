@@ -1,0 +1,59 @@
+Big Theta Notation (Θ)
+Big Theta notation provides a tight bound on the runtime, meaning it describes the average-case scenario
+
+Θ(n) - Linear Time
+The runtime grows linearly with the size of the input.
+
+int sumArray(List<int> arr) {
+int sum = 0;
+for (int element in arr) {
+sum += element;
+}
+return sum;
+}
+
+This function sums all elements in the list. The time taken grows linearly with the size of the list.
+
+Θ(n log n) - Linearithmic Time
+This is common in algorithms like merge sort.
+
+void mergeSort(List<int> arr) {
+if (arr.length <= 1) return;
+
+int mid = arr.length ~/ 2;
+List<int> left = arr.sublist(0, mid);
+List<int> right = arr.sublist(mid);
+
+mergeSort(left);
+mergeSort(right);
+merge(arr, left, right);
+}
+
+void merge(List<int> arr, List<int> left, List<int> right) {
+int i = 0, j = 0, k = 0;
+
+while (i < left.length && j < right.length) {
+if (left[i] <= right[j]) {
+arr[k] = left[i];
+i++;
+} else {
+arr[k] = right[j];
+j++;
+}
+k++;
+}
+
+while (i < left.length) {
+arr[k] = left[i];
+i++;
+k++;
+}
+
+while (j < right.length) {
+arr[k] = right[j];
+j++;
+k++;
+}
+}
+
+Merge sort has a time complexity of Θ(n log n) because it divides the list into halves (log n) and then merges them (n).
